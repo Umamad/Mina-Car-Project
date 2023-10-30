@@ -1,17 +1,33 @@
-// import Carslist from "@/components/templates/Carslist";
-// import carsData from "@/utils/carsData";
-import { useRouter } from "next/router";
+import BackButton from "@/src/buttons/Back.button";
+import CarsList from "@/src/lists/Cars.list";
 
-const Filterdcars = () => {
-    // const router = useRouter();
-    // const [min , max] = router.query.slug || [];
-    // const filterdeData = carsData.filter(item => item.price > min && item.price < max);
-    // if (!filterdeData.length ) return <h3>Not Found</h3>
-    // console.log(filterdeData)
+import api from "@/utils/api";
 
-    // return (
-    //     <Carslist data={filterdeData}/>
-    // );
+const FilteredByPricePage = ({ cars }) => {
+  return (
+    <>
+      <BackButton />
+      <CarsList cars={cars} />
+    </>
+  );
 };
 
-export default Filterdcars;
+export default FilteredByPricePage;
+
+export async function getServerSideProps({ query }) {
+  const [min, max] = query.slug;
+  const cars = await api();
+  const filteredCars = cars.filter((car) => car.price > min && car.price < max);
+
+  if (!min || !max) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      cars: filteredCars,
+    },
+  };
+}
