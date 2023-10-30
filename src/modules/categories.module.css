@@ -1,5 +1,5 @@
 .container {
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow: var(--primary-shadow);
     width: fit-content;
     margin: 50px auto;
     display: flex;
@@ -11,7 +11,7 @@
   .container div {
     text-align: center;
     margin: 5px;
-    background-color: #befa00;
+    background-color: var(--primary-color);
     padding: 5px;
     padding-bottom: 0;
     border-radius: 5px;

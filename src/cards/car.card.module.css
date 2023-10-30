@@ -1,5 +1,5 @@
 .container {
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  box-shadow: var(--primary-shadow);
   width: 100%;
   border-radius: var(--main-border-radius);
   padding: 10px;
@@ -58,7 +58,7 @@
 }
 
 .price {
-  background-color: #befa00;
+  background-color: var(--primary-color);
   padding: 3px 5px;
   border-radius: 8px;
   font-size: 20px;

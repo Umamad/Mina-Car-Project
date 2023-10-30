@@ -1,6 +1,9 @@
 :root {
   --main-background: #f8f8f7;
   --main-border-radius: 10px;
+  --header-width: min(100%, 440px);
+  --primary-color: #befa00;
+  --primary-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 * {

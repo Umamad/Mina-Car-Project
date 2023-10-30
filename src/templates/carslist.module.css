@@ -8,7 +8,7 @@
     align-items: center;
     font-size: 1.5rem;
     width: fit-content;
-    background-color: #befa00;
+    background-color: var(--primary-color);
     padding: 10px 15px;
     border-radius: 5px;
     margin: 50px 0;
