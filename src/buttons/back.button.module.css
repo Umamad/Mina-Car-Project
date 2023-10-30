@@ -1,0 +1,25 @@
+.back {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  width: 150px;
+  background-color: var(--primary-color);
+  padding: 10px 15px;
+  border-radius: var(--main-border-radius);
+  margin: 24px 0;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  justify-content: center;
+  column-gap: 8px;
+}
+
+.back > svg {
+  width: 20px;
+}
+
+@media (width <= 600px) {
+  .back {
+    width: 100%;
+  }
+}
