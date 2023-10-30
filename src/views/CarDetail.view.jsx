@@ -1,30 +1,41 @@
-import Company from "../icons/Company";
-import Location from "../icons/Location";
-import Model from "../icons/Model";
-import Money from "../icons/Money";
-import Road from "../icons/Road";
-import Calender from "../icons/Calender";
-import styles from "../templates/carsdatadetails.module.css"
+import Image from "next/image";
 
-function CarDetails(props) {
-  const {
-    id,
-    name,
-    model,
-    year,
-    distance,
-    location,
-    image,
-    price,
-    description,
-  } = props;
+import Company from "../icons/Company";
+import Model from "../icons/Model";
+import Calender from "../icons/Calender";
+import Road from "../icons/Road";
+import Money from "../icons/Money";
+import Location from "../icons/Location";
+
+import customImageLoader from "@/utils/customImageLoader";
+
+import styles from "./cardetail.view.module.css";
+
+const CarDetailView = ({ car }) => {
+  const { name, model, year, distance, location, image, price, description } =
+    car;
 
   return (
     <div className={styles.container}>
-      <img src={image} className={styles.image} />
-      <h3 className={styles.header}>
+      <div className={styles.image_container}>
+        <Image
+          src={image}
+          loader={customImageLoader}
+          alt={`${name} ${model}`}
+          width={0}
+          height={0}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
+          }}
+        />
+      </div>
+
+      <h1 className={styles.header}>
         {name} {model}
-      </h3>
+      </h1>
+
       <div className={styles.details}>
         <div>
           <Company />
@@ -44,7 +55,12 @@ function CarDetails(props) {
         <div>
           <Road />
           <p>kms driven</p>
-          <span>{distance}</span>
+          <span>
+            {new Intl.NumberFormat("en-US", {
+              style: "unit",
+              unit: "kilometer-per-hour",
+            }).format(distance)}
+          </span>
         </div>
       </div>
       <div className={styles.details}>
@@ -62,12 +78,17 @@ function CarDetails(props) {
         <div className={styles.price}>
           <Money />
           <p>Price:</p>
-          <span>{price}</span>
+          <span>
+            {new Intl.NumberFormat("en-US", {
+              style: "currency",
+              currency: "USD",
+            }).format(price)}
+          </span>
         </div>
       </div>
       <button className={styles.button}>Buy</button>
     </div>
   );
-}
+};
 
-export default CarDetails;
+export default CarDetailView;

@@ -1,20 +1,33 @@
-// import React from 'react';
-// import { useRouter } from 'next/router';
-// import carsData from '@/utils/carsData';
-// import CarsDataDetail from '@/components/templates/CarsDataDetail';
+import CarDetailView from "@/src/views/CarDetail.view";
+import BackButton from "@/src/buttons/Back.button";
 
-const CarDetails = () => {
-    // const router = useRouter();
-    // const {carId} = router.query; 
-    // const CarDetails = carsData[carId -  1 ]
-    // console.log(CarDetails)
-    // return (
-    //     <div>
-    //         <p>
-    //         <CarsDataDetail {...CarDetails} />
-    //         </p>
-    //     </div>
-    // );
+import api from "@/utils/api";
+
+const CarDetailsPage = ({ car }) => {
+  return (
+    <>
+      <BackButton />
+      <CarDetailView car={car} />
+    </>
+  );
 };
 
-export default CarDetails;
+export default CarDetailsPage;
+
+export async function getServerSideProps({ query }) {
+  const { carId } = query;
+  const cars = await api();
+  const selectedCar = cars.find((car) => car.id === +carId);
+
+  if (!selectedCar) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      car: selectedCar,
+    },
+  };
+}

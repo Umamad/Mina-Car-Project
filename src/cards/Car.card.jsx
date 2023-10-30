@@ -14,13 +14,14 @@ const CarCard = ({ car }) => {
         <Image
           src={image}
           loader={customImageLoader}
+          alt={`${name} ${model}`}
           width={0}
           height={0}
           style={{
             objectFit: "cover",
             width: "100%",
             height: "100%",
-            borderRadius: 8,
+            borderRadius: "var(--main-border-radius)",
           }}
         />
       </div>
