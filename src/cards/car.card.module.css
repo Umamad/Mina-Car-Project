@@ -1,0 +1,67 @@
+.container {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  width: 100%;
+  border-radius: var(--main-border-radius);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  row-gap: 16px;
+}
+
+.card_media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+
+.card_content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  row-gap: 16px;
+}
+
+.title {
+  color: blueviolet;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.detail {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  column-gap: 8px;
+  font-size: 0.85rem;
+  color: grey;
+  white-space: nowrap;
+}
+
+.detail > :is(div) {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: end;
+  column-gap: 2px;
+}
+
+.detail > div > span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.detail svg {
+  width: 15px;
+}
+
+.price {
+  background-color: #befa00;
+  padding: 3px 5px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}

@@ -1,17 +1,27 @@
-// import React from 'react';
-// import carsData from '@/utils/carsData';
-// import CarsPage from '@/components/templates/CarsPage';
-// import Categories from '@/components/modules/Categories';
-// import SearchBar from '@/components/modules/SearchBar';
+import CarsList from "@/src/lists/Cars.list";
+import Categories from "@/src/modules/Categories";
+import SearchBar from "@/src/modules/SearchBar";
 
-const cars = () => {
-    // return (
-    //     <>
-    //     <SearchBar />
-    //     <Categories />
-    //       <CarsPage data={carsData} />
-    //     </>
-    // );
+import api from "@/utils/api";
+
+const CarsPage = ({ cars }) => {
+  return (
+    <>
+      <SearchBar />
+      <Categories />
+      <CarsList cars={cars} />
+    </>
+  );
 };
 
-export default cars;
+export default CarsPage;
+
+export async function getStaticProps() {
+  const cars = await api();
+
+  return {
+    props: {
+      cars,
+    },
+  };
+}
