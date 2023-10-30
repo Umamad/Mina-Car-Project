@@ -1,45 +1,39 @@
 .container {
   box-shadow: var(--primary-shadow);
   width: var(--header-width);
-  margin: 50px auto;
-  padding: 5px;
+  margin: 18px auto;
+  padding: 5px 10px;
   display: flex;
   justify-content: space-between;
+  border-radius: var(--main-border-radius);
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
 }
 
-.container div {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
 .container input {
   border: 1px solid var(--primary-color);
+  outline: none;
   border-radius: 5px;
   padding: 5px;
-  margin: 5px 0;
+  flex: auto;
 }
 
 .container button {
-  margin: 5px 0;
   background-color: var(--primary-color);
   border: none;
   padding: 10px;
   border-radius: 5px;
-  cursor: pointer;
-  margin-left: 10px;
 }
 
 @media (max-width: 600px) {
   .container {
-    width: 320px;
     flex-wrap: wrap;
-    justify-content: center;
+  }
+  .container input {
+    padding: 10px;
   }
   .container button {
     width: 100%;
-    margin: 5px;
-  }
-  .container div {
-    margin: 5px;
   }
 }

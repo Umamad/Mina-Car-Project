@@ -2,9 +2,9 @@ import { useState } from "react";
 
 import { useRouter } from "next/router";
 
-import styles from "../modules/searchbar.module.css";
+import styles from "./searchbar.container.module.css";
 
-const SearchBar = () => {
+const SearchBarContainer = () => {
   const router = useRouter();
 
   const [min, setMin] = useState("");
@@ -36,4 +36,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default SearchBarContainer;

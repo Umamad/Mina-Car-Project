@@ -1,14 +1,14 @@
 import CarsList from "@/src/lists/Cars.list";
-import Categories from "@/src/modules/Categories";
-import SearchBar from "@/src/modules/SearchBar";
+import CategoriesList from "@/src/lists/Categories.list";
+import SearchBarContainer from "@/src/containers/SearchBar.container";
 
 import api from "@/utils/api";
 
 const CarsPage = ({ cars }) => {
   return (
     <>
-      <SearchBar />
-      <Categories />
+      <SearchBarContainer />
+      <CategoriesList />
       <CarsList cars={cars} />
     </>
   );
