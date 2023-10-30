@@ -8,7 +8,7 @@ const CarsPage = ({ cars }) => {
   return (
     <>
       <SearchBarContainer />
-      <CategoriesList />
+      <CategoriesList cars={cars} />
       <CarsList cars={cars} />
     </>
   );
