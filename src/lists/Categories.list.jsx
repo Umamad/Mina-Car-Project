@@ -9,7 +9,7 @@ import styles from "./categories.list.module.css";
 
 const Categories = () => {
   return (
-    <div className={styles.container}>
+    <nav className={styles.container}>
       <Link href="categories/suv">
         <div>
           <p>SUv</p>
@@ -37,7 +37,7 @@ const Categories = () => {
           <Sedan />
         </div>
       </Link>
-    </div>
+    </nav>
   );
 };
 
