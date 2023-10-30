@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  row-gap: 16px;
+}
+
+.container .header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding: 5px 10px;
+  align-items: baseline;
+}
+
+.header h3 {
+  font-weight: 500;
+  font-size: 32px;
+  text-transform: capitalize;
+}
+
+.header a {
+  font-weight: 400;
+  font-size: 18px;
+  text-transform: capitalize;
+}
